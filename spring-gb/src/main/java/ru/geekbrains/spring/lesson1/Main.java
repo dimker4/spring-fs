@@ -14,5 +14,12 @@ public class Main {
         ProductService productService = context.getBean("productService", ProductService.class);
         System.out.println(productService.getProductList());
 
+        CartService cartService = context.getBean("cartService", CartService.class);
+        cartService.addProduct(1);
+        cartService.addProduct(2);
+        cartService.addProduct(2);
+        cartService.addProduct(4);
+        System.out.println(cartService.getAmountPrice());
+
     }
 }

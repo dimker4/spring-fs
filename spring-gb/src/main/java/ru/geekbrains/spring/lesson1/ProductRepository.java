@@ -2,6 +2,7 @@ package ru.geekbrains.spring.lesson1;
 
 import org.springframework.stereotype.Repository;
 
+import javax.annotation.PostConstruct;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -12,7 +13,7 @@ public class ProductRepository {
     private List<Product> productList = new ArrayList<>();
 
 
-    @PostConstruct // Ошибка, выделено красным цветом
+    @PostConstruct
     public void init() {
         productList.add(new Product(1l, "apple", 50.0));
         productList.add(new Product(2l, "lemon", 75.0));
