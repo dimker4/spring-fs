@@ -25,10 +25,6 @@ public class CartService {
     }
 
     public double getAmountPrice () {
-        double amount = 0;
-        for(Product product: cart) {
-            amount += product.getPrice();
-        }
-        return amount;
+        return cart.stream().mapToDouble(Product::getPrice).sum();
     }
 }
