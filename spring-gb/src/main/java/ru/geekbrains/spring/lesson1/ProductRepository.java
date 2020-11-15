@@ -13,7 +13,7 @@ public class ProductRepository {
     private List<Product> productList = new ArrayList<>();
 
 
-    @PostConstruct
+    @PostConstruct // метод будет вызывается после вызова конструктора
     public void init() {
         productList.add(new Product(1l, "apple", 50.0));
         productList.add(new Product(2l, "lemon", 75.0));
@@ -24,6 +24,13 @@ public class ProductRepository {
 
     public List<Product> findAll() {
         return Collections.unmodifiableList(productList);
+    }
+
+    public Product getProductById (long id) {
+        for (Product product: productList) {
+            if (product.getId() == id) return product;
+        }
+        return null;
     }
 
     public void addProduct(Product product) {

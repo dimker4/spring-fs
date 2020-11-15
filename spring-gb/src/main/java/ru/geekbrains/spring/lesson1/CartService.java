@@ -15,11 +15,7 @@ public class CartService {
     }
 
     public void addProduct(long id) {
-        for (Product product: productRepository.findAll()) {
-            if (product.getId() == id) {
-                cart.add(product);
-            }
-        }
+        cart.add(productRepository.getProductById(id));
     }
 
     public void removeProduct(long id) {
